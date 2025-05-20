@@ -1,8 +1,9 @@
-name: Build RBrowser Application
+name: Build RBrowser for Windows, Mac, and Linux
 
 on:
   push:
-    branches: [main]
+    tags:
+      - "v0.1.1"
   workflow_dispatch:
 
 jobs:
@@ -14,25 +15,27 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
 
       - name: Install dependencies
         run: npm install
 
-      - name: Build React app
+      - name: Build Electron App
         run: npm run build
 
-      - name: Compile Electron main process
+      - name: Package with electron-builder
         run: |
-          npx tsc -p tsconfig.main.json
-
-      - name: Package Electron app
-        run: |
-          npm run electron:build
+          npx electron-builder --$RUNNER_OS
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: RBrowser-${{ matrix.os }}
+          path: dist/*
