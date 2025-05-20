@@ -3,7 +3,7 @@ name: Build RBrowser for Windows, Mac, and Linux
 on:
   push:
     tags:
-      - "v0.1.1"
+      - "v*"
   workflow_dispatch:
 
 jobs:
