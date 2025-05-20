@@ -1,0 +1,58 @@
+{
+  "name": "rbrowser-app",
+  "description": "RBrowser: A desktop of the novel RNA-centric browser",
+  "version": "0.1.1",
+  "main": "electron/main.js",
+  "build": {
+    "appId": "org.rbrowser.app",
+    "productName": "RBrowser",
+    "files": [
+      "build/**/*",
+      "electron/main.js"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "extraMetadata": {
+      "main": "electron/main.js"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "build/logo512.png"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "icon": "build/logo512.png",
+      "category": "Science"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "build/logo512.png"
+    }
+  },
+  "scripts": {
+    "start": "electron .",
+    "dev": "nodemon --watch . --exec electron .",
+    "build": "electron-builder",
+    "electron:build": "npm run build && npm run build:main && electron-builder",
+    "start:electron": "npm run build && npm run build:main && electron .",
+    "build-electron": "npm run build && electron-builder --publish=always"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/typekey/rbrowser-app.git"
+  },
+  "keywords": [],
+  "author": "Lei Zheng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/typekey/rbrowser-app/issues"
+  },
+  "homepage": "https://github.com/typekey/rbrowser-app#readme",
+  "devDependencies": {
+    "electron": "^36.2.1"
+  }
+}

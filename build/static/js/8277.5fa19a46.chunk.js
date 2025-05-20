@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkrna_browser=self.webpackChunkrna_browser||[]).push([[8277],{68277:(e,r,s)=>{s.r(r),s.d(r,{default:()=>c});var a=s(72791),n=s(80184);const o=()=>(0,n.jsx)("div",{children:"Download"}),c=(0,a.memo)(o)}}]);

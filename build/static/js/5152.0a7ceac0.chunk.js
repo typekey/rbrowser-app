@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkrna_browser=self.webpackChunkrna_browser||[]).push([[5152],{45152:(r,e,s)=>{s.r(e),s.d(e,{default:()=>o});var a=s(72791),n=s(80184);const c=()=>(0,n.jsx)("div",{children:"Browser"}),o=(0,a.memo)(c)}}]);
