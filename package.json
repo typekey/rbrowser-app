@@ -1,6 +1,5 @@
 {
   "name": "rbrowser-app",
-  "email": "type.zheng@gmail.com",
   "description": "RBrowser: A desktop of the novel RNA-centric browser",
   "version": "0.1.1",
   "main": "electron/main.js",
@@ -47,7 +46,10 @@
     "url": "git+https://github.com/typekey/rbrowser-app.git"
   },
   "keywords": [],
-  "author": "Lei Zheng",
+  "author": {
+    "name": "Lei Zheng",
+    "email": "type.zheng@gmail.com"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/typekey/rbrowser-app/issues"
