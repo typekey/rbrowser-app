@@ -62,18 +62,14 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: rbrowser-windows
-          path: |
-            dist/*.exe
-            dist/*.exe.blockmap
+          path: dist/*.exe
 
       - name: Upload macOS Artifacts
         if: matrix.os == 'macos-latest'
         uses: actions/upload-artifact@v4
         with:
           name: rbrowser-mac
-          path: |
-            dist/*.dmg
-            dist/*.dmg.blockmap
+          path: dist/*.dmg
 
       - name: Upload Linux Artifacts
         if: matrix.os == 'ubuntu-latest'
@@ -84,17 +80,28 @@ jobs:
             dist/*.AppImage
             dist/*.deb
 
-      - name: Create Release and Upload Assets
-        if: startsWith(github.ref, 'refs/tags/')
-        uses: softprops/action-gh-release@v1
+      - name: Upload Windows to Release
+        if: matrix.os == 'windows-latest' && startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*.exe
+          draft: false
+          prerelease: false
+
+      - name: Upload macOS to Release
+        if: matrix.os == 'macos-latest' && startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*.dmg
+          draft: false
+          prerelease: false
+
+      - name: Upload Linux to Release
+        if: matrix.os == 'ubuntu-latest' && startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
         with:
           files: |
-            dist/*.exe
-            dist/*.dmg
             dist/*.AppImage
             dist/*.deb
           draft: false
           prerelease: false
-          generate_release_notes: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
