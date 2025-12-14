@@ -30,7 +30,8 @@
     },
     "mac": {
       "target": "dmg",
-      "icon": "build/logo512.png"
+      "icon": "build/logo512.png",
+      "identity": null
     }
   },
   "scripts": {
