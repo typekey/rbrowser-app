@@ -1,4 +1,4 @@
-name: Build RBrowser for Windows, Mac, and Linux
+name: Build and Release RBrowser
 
 on:
   push:
@@ -9,12 +9,17 @@ on:
 jobs:
   build:
     runs-on: ${{ matrix.os }}
-    env:
-      GH_TOKEN: ${{ secrets.GH_TOKEN }} # GH_TOKEN 必须有 repo 权限
-
+    
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [windows-latest, macos-latest, ubuntu-latest]
+        include:
+          - os: windows-latest
+            platform: windows
+          - os: macos-latest
+            platform: mac
+          - os: ubuntu-latest
+            platform: linux
 
     steps:
       - name: Checkout code
@@ -24,18 +29,54 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Build Electron App
-        run: npm run build
+      - name: Build and Package (Windows/Linux)
+        if: matrix.os != 'macos-latest'
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: npm run build-electron
 
-      - name: Package with electron-builder
-        run: npx electron-builder
+      - name: Build and Package (macOS)
+        if: matrix.os == 'macos-latest'
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          CSC_LINK: ${{ secrets.MAC_CERTS }}
+          CSC_KEY_PASSWORD: ${{ secrets.MAC_CERTS_PASSWORD }}
+        run: npm run build-electron
 
-      - name: Upload Artifacts
+      - name: List build outputs
+        run: |
+          echo "=== Contents of dist directory ==="
+          ls -R dist/
+        shell: bash
+
+      - name: Upload Windows Artifacts
+        if: matrix.os == 'windows-latest'
         uses: actions/upload-artifact@v4
         with:
-          name: RBrowser-${{ matrix.os }}
-          path: dist/*
+          name: rbrowser-windows
+          path: |
+            dist/*.exe
+            dist/*.exe.blockmap
+
+      - name: Upload macOS Artifacts
+        if: matrix.os == 'macos-latest'
+        uses: actions/upload-artifact@v4
+        with:
+          name: rbrowser-mac
+          path: |
+            dist/*.dmg
+            dist/*.dmg.blockmap
+
+      - name: Upload Linux Artifacts
+        if: matrix.os == 'ubuntu-latest'
+        uses: actions/upload-artifact@v4
+        with:
+          name: rbrowser-linux
+          path: |
+            dist/*.AppImage
+            dist/*.deb
