@@ -64,7 +64,7 @@ if ($confirm -ne "y" -and $confirm -ne "Y") {
 if ($gitStatus) {
     Write-Host "Committing changes..." -ForegroundColor Green
     git add .
-    git commit -m "chore: release $VERSION"
+    git commit -m "Release $VERSION"
 }
 
 # Push code
