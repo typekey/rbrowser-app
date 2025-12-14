@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkrna_browser=self.webpackChunkrna_browser||[]).push([[8779],{78779:(e,r,s)=>{s.r(r),s.d(r,{default:()=>t});var a=s(72791),n=s(80184);const c=()=>(0,n.jsx)("div",{children:"Contact"}),t=(0,a.memo)(c)}}]);

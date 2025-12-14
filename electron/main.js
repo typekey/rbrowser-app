@@ -2,7 +2,7 @@
  * @Author: Zheng Lei
  * @Email: baimoc@163.com
  * @Date: 2025-05-20 12:37:24
- * @LastEditTime: 2025-12-13 17:53:18
+ * @LastEditTime: 2025-12-14 13:23:27
  * @FilePath: \rbrowser-app\electron\main.js
  */
 const { app, BrowserWindow } = require("electron");
@@ -43,7 +43,7 @@ function createWindow() {
   win.webContents.on("did-create-window", (newWindow) => {
     newWindow.removeMenu();
 
-    // 只在开发环境下支持 F12 打开开发者工具
+    // 只在开发环境支持 F12 打开开发者工具
     if (!app.isPackaged) {
       newWindow.webContents.on("before-input-event", (event, input) => {
         if (input.key === "F12") {
@@ -53,7 +53,7 @@ function createWindow() {
     }
   });
 
-  // 只在开发环境下支持 F12 打开开发者工具
+  // 只在开发环境支持 F12 打开开发者工具
   if (!app.isPackaged) {
     win.webContents.on("before-input-event", (event, input) => {
       if (input.key === "F12") {
@@ -63,9 +63,13 @@ function createWindow() {
   }
 
   // 加载 React 构建好的 index.html
-  win.loadFile(
-    path.join(__dirname, "../../rna-browser/dist-app", "index.html")
-  );
+  // 打包后：从 build 目录加载
+  // 开发时：从 ../../rna-browser/dist-app 加载
+  const indexPath = app.isPackaged
+    ? path.join(__dirname, "../build", "index.html")
+    : path.join(__dirname, "../../rna-browser/dist-app", "index.html");
+
+  win.loadFile(indexPath);
 }
 
 app.whenReady().then(createWindow);
