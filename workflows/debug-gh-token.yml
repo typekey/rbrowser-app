@@ -1,0 +1,19 @@
+name: Validate GH_TOKEN
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check-gh-token:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Debug GH_TOKEN
+        run: |
+          if [ -n "${GH_TOKEN}" ]; then
+            echo "✅ GH_TOKEN is set and available"
+          else
+            echo "❌ GH_TOKEN is missing or misconfigured"
+            exit 1
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
