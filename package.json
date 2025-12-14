@@ -1,7 +1,7 @@
 {
   "name": "rbrowser-app",
   "description": "RBrowser: A desktop of the novel RNA-centric browser",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "main": "electron/main.js",
   "build": {
     "appId": "org.rbrowser.app",
