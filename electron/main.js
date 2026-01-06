@@ -2,7 +2,7 @@
  * @Author: Zheng Lei
  * @Email: baimoc@163.com
  * @Date: 2025-05-20 12:37:24
- * @LastEditTime: 2025-12-14 13:23:27
+ * @LastEditTime: 2025-12-16 14:50:59
  * @FilePath: \rbrowser-app\electron\main.js
  */
 const { app, BrowserWindow } = require("electron");
@@ -13,6 +13,7 @@ function createWindow() {
     width: 800,
     height: 600,
     autoHideMenuBar: true, // 自动隐藏菜单栏
+
     webPreferences: {
       contextIsolation: true,
       nodeIntegration: false, // 如果你想要 React 安全运行
