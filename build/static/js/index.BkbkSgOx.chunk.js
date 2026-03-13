@@ -1,0 +1,2 @@
+import{j as e}from"./mui-vendor.7OtpLPDm.chunk.js";import{r}from"./react-vendor.C018e_IG.chunk.js";const i=r.memo(()=>{const i=r.useRef(null);return e.jsx("div",{style:{overflow:"auto",height:window.innerHeight},children:e.jsx("div",{id:"rna-browser-container",ref:i,style:{overflow:"visible",height:"5000px",width:window.innerWidth}})})});export{i as default};
+//# sourceMappingURL=index.BkbkSgOx.chunk.js.map
