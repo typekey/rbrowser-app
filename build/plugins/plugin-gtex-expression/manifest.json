@@ -1,0 +1,15 @@
+{
+  "id": "plugin-gtex-expression",
+  "name": "GTEx Expression",
+  "version": "0.1.0",
+  "apiVersion": "1",
+  "minHostVersion": "0.0.1",
+  "entry": "./plugins/plugin-gtex-expression/index.js",
+  "permissions": ["state:read"],
+  "panel": {
+    "position": "right",
+    "title": "GTEx Expression"
+  },
+  "author": "RBrowser Core",
+  "description": "GTEx tissue expression heatmap (exon / junction) for the active transcript. A reference example of building data-driven plugins with the plugin SDK."
+}

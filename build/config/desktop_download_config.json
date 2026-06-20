@@ -1,0 +1,36 @@
+{
+  "section": {
+    "eyebrow": "Download",
+    "heading": "Get the desktop app",
+    "sub": "Prefer a native install? Grab RBrowser for your platform."
+  },
+  "recommend": {
+    "enabled": true,
+    "icon": "thunderbolt",
+    "prefix": "We recommend the ",
+    "strong": "CLI version",
+    "suffix": " for the fastest setup and remote workflows.",
+    "linkLabel": "Go to CLI install →",
+    "linkAnchor": "cli"
+  },
+  "platforms": [
+    {
+      "icon": "windows",
+      "name": "Windows",
+      "version": "v1.1.11 · Setup.exe",
+      "url": "https://github.com/typekey/rbrowser-app/releases/download/v1.1.11/RBrowser.Setup.1.1.11.exe"
+    },
+    {
+      "icon": "apple",
+      "name": "macOS",
+      "version": "v1.1.11 · Apple Silicon",
+      "url": "https://github.com/typekey/rbrowser-app/releases/download/v1.1.11/RBrowser-1.1.11-arm64.dmg"
+    },
+    {
+      "icon": "linux",
+      "name": "Linux",
+      "version": "v1.1.11 · AppImage",
+      "url": "https://github.com/typekey/rbrowser-app/releases/download/v1.1.11/RBrowser-1.1.11.AppImage"
+    }
+  ]
+}

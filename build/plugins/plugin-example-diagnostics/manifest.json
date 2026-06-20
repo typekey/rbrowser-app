@@ -1,0 +1,12 @@
+{
+  "id": "plugin-example-diagnostics",
+  "name": "API Diagnostics",
+  "version": "0.1.0",
+  "apiVersion": "1",
+  "minHostVersion": "0.0.1",
+  "entry": "./plugins/plugin-example-diagnostics/index.js",
+  "permissions": ["state:read", "navigation:write", "highlight:write", "storage:write"],
+  "panel": { "position": "right", "title": "API Diagnostics" },
+  "author": "RBrowser Core",
+  "description": "Exercises every public host API. Use to verify the plugin SDK contract."
+}
