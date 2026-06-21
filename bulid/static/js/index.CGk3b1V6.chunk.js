@@ -1,0 +1,1 @@
+import{j as s}from"./ui-vendor.CaxHe-EA.chunk.js";import n from"./index.DCcyILbs.chunk.js";import"./pixi-vendor.BYlCcKIK.chunk.js";import"./index.vndRlkIW.js";import"./useCurrentAssembly.Dlgrygm9.chunk.js";const o=()=>s.jsx(n,{standalone:!0});export{o as default};

@@ -1,1 +1,0 @@
-import{ag as n,aD as a}from"./index.BGtr41bM.js";function l(){var l,r,e,o;const s=n(a);return{transId:(null==(l=null==s?void 0:s.rna)?void 0:l.trans_id)||"",transName:(null==(r=null==s?void 0:s.rna)?void 0:r.trans_name)||"",geneName:(null==(e=null==s?void 0:s.rna)?void 0:e.gene_name)||"",assembly:(null==(o=null==s?void 0:s.rna)?void 0:o.assembly)||""}}export{l as u};

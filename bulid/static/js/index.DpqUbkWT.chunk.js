@@ -1,0 +1,1 @@
+import{r as e,j as i}from"./ui-vendor.CaxHe-EA.chunk.js";import"./pixi-vendor.BYlCcKIK.chunk.js";const r=e.memo(()=>{const r=e.useRef(null);return i.jsx("div",{style:{overflow:"auto",height:window.innerHeight},children:i.jsx("div",{id:"rna-browser-container",ref:r,style:{overflow:"visible",height:"5000px",width:window.innerWidth}})})});export{r as default};
